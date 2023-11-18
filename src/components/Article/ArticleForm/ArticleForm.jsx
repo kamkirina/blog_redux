@@ -17,8 +17,6 @@ function ArticleForm() {
   const article = articles.find((item) => item.slug === slug)
 
   useEffect(() => {
-    console.log(slug)
-    console.log(token)
     dispatch(setLocation('article-page'))
     dispatch(setStatus('loading'))
     dispatch(fetchArticle(slug, token))
