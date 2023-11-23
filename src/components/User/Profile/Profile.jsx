@@ -11,13 +11,13 @@ import signUp from '../SignUp/SignUp.module.scss'
 import cl from './Profile.module.scss'
 
 function Profile() {
-  const navigate = useNavigate()
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm()
 
+  const navigate = useNavigate()
   const { user } = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const servErr = useSelector((state) => state.user.errors)
