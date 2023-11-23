@@ -1,1 +1,1 @@
-https://blog-redux-opal.vercel.app/
+https://blog-redux-kamkirina.vercel.app
