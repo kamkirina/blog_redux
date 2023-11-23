@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { updateUser } from '../../../services/blogAPIService'
 import { setSubmit } from '../../../utils/status-slice'
@@ -10,6 +11,7 @@ import signUp from '../SignUp/SignUp.module.scss'
 import cl from './Profile.module.scss'
 
 function Profile() {
+  const navigate = useNavigate()
   const {
     register,
     formState: { errors },
@@ -23,6 +25,7 @@ function Profile() {
   const onSubmit = (data) => {
     dispatch(setSubmit(false))
     dispatch(updateUser(data))
+    navigate('/')
   }
 
   const { submitActive } = useSelector((state) => state.status)
@@ -54,6 +57,10 @@ function Profile() {
                   maxLength: {
                     value: 20,
                     message: 'Your username needs to be not more than 20 characters.',
+                  },
+                  pattern: {
+                    value: /^[A-Za-z]+$/i,
+                    message: 'Your username can`t contain spaces.',
                   },
                 })}
               />

@@ -67,6 +67,10 @@ function SignUp() {
                   value: 20,
                   message: 'Your username needs to be not more than 20 characters.',
                 },
+                pattern: {
+                  value: /^[A-Za-z]+$/i,
+                  message: 'Your username can`t contain spaces.',
+                },
               })}
             />
             {servErr?.username && (

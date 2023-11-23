@@ -49,8 +49,10 @@ export const fetchArticles = (offset = 1, limit = 5, token = '') => {
 }
 
 export const fetchArticle = (slug, token = '') => {
+  console.log(token)
   return async (dispatch) =>
     axios(`${baseUrl}/articles/${slug}`, { headers: getHeaders(token) }).then((res) => {
+      console.log(res.data)
       dispatch(addArticle(getArticleItem(res.data.article)))
       dispatch(setStatus('ok'))
     })
