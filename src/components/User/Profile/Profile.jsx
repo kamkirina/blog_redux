@@ -59,7 +59,7 @@ function Profile() {
                     message: 'Your username needs to be not more than 20 characters.',
                   },
                   pattern: {
-                    value: /^[A-Za-z]+$/i,
+                    value: /^(?![\d+_@.-]+$)[a-zA-Z0-9+_@.-]*$/,
                     message: 'Your username can`t contain spaces.',
                   },
                 })}
